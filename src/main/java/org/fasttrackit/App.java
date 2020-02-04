@@ -6,8 +6,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        PickingAWinner pickingAWinner = new PickingAWinner();
-        pickingAWinner.pickingWinner();
+        ComputingStatistics computingStatistics = new ComputingStatistics();
+        computingStatistics.getStatistics();
 
     }
 }
