@@ -21,7 +21,7 @@ public class PickingAWinner {
 
             if (sc.equals("stop")) {
                 System.out.println("The winner is...");
-                System.out.println(names.get(ThreadLocalRandom.current().nextInt(0, names.size())));
+                System.out.println(names.get(ThreadLocalRandom.current().nextInt(0, names.size()-1)));
                 break;
             }
         }
