@@ -62,12 +62,28 @@ public class FilteringRecords {
         System.out.println("Enter a search string: ");
         String search = scanner.nextLine();
 
-        System.out.println("Name                | Position              | Separation Date");
-        System.out.println("-------------------------------------------------------------");
-
-        Map<String, Object> result = new HashMap<>();
+        List<Map<String, Object>> searched = new ArrayList<>();
         for (Map<String, Object> print : persons) {
+            for (Map.Entry<String, Object> currentMapIterator : print.entrySet()) {
+                if (currentMapIterator.getKey().equals("lastName")) {
+                    if (currentMapIterator.getValue().toString().contains(search))
+                        searched.add(print);
 
+                }
+            }
+        }
+
+        System.out.println("Name                 | Position              | Separation Date");
+        System.out.println("--------------------------------------------------------------");
+        for (Map<String, Object> print : searched) {
+            Iterator<Map.Entry<String, Object>> iterator = print.entrySet().iterator();
+            if (iterator.hasNext()) {
+                Object firstName = print.get("firstName");
+                Object lastName = print.get("lastName");
+                Object position = print.get("position");
+                Object separationDate = print.get("separationDate");
+                System.out.printf("%-10s %-10s|\t %-20s|\t %-20s\t %n", firstName, lastName, position, separationDate);
+            }
         }
     }
 }
