@@ -1,9 +1,8 @@
 package org.fasttrackit;
 
-
 import java.util.*;
 
-public class SortingRecords {
+public class FilteringRecords {
 
     public void createMaps() {
         Map<String, Object> person1 = new HashMap<>();
@@ -51,6 +50,7 @@ public class SortingRecords {
         persons.add(person5);
         persons.add(person6);
 
+
         persons.sort(new Comparator<Map<String, Object>>() {
             @Override
             public int compare(Map<String, Object> o1, Map<String, Object> o2) {
@@ -58,17 +58,16 @@ public class SortingRecords {
             }
         });
 
-        System.out.println("Name                 | Position              | Separation Date");
-        System.out.println("--------------------------------------------------------------");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a search string: ");
+        String search = scanner.nextLine();
+
+        System.out.println("Name                | Position              | Separation Date");
+        System.out.println("-------------------------------------------------------------");
+
+        Map<String, Object> result = new HashMap<>();
         for (Map<String, Object> print : persons) {
-            Iterator<Map.Entry<String, Object>> iterator = print.entrySet().iterator();
-            if (iterator.hasNext()) {
-                Object firstName = print.get("firstName");
-                Object lastName = print.get("lastName");
-                Object position = print.get("position");
-                Object separationDate = print.get("separationDate");
-                System.out.printf("%-10s %-10s|\t %-20s|\t %-20s\t %n", firstName, lastName, position, separationDate);
-            }
+
         }
     }
 }
